@@ -18,14 +18,17 @@ public class NameController : ControllerBase
     }
 
     [HttpPost]
-    public string Add([FromBody] AddDto dto)
+    public IActionResult Add([FromBody] AddDto dto)
     {
         if (!Summaries.Contains(dto.Name))
         {
             Summaries.Add(dto.Name);
         }
 
-        return dto.Name;
+        return new ObjectResult(new
+        {
+            dto.Name
+        });
     }
 
     [HttpDelete]
