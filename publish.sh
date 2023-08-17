@@ -1,0 +1,1 @@
+docker build -f SampleApi/Dockerfile -t zlzforever/sample-api .
